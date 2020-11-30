@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K-Love</title>
+    <link rel="stylesheet" href="sstart.css" />
+    <title>Startside</title>
 </head>
 <body>
+    <div class="box-area">
+        <header>
+            <div class="wrapper">
+                <div class="logo">
+                  <a href="#">K-Love</a>
+                </div>
+                <nav>
+                    <a href="opda.html">Opdatere profil</a>
+                    <a href="date.html">Matches/Swipe</a>
+                    <a href="#">Indstillinger</a>
+                </nav>
+            </div>
+        </header>
+        <div class="banner-area">
+            <h2>this is banner</h2>
+        </div>
+        <div class="content-area">
+            <div class="wrapper">
+                <h2>Content Area</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit vel, assumenda odio nobis laudantium, molestiae laborum debitis perspiciatis, inventore nihil aperiam deleniti officiis consequuntur? Minima molestiae fugiat sit laudantium porro.</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="login-page">
+    <div class="form">
+        <form class="register-form">
+        <input type="text" placeholder="username"/>
+        <input type="text" placeholder="password"/>   
+        <input type="text" placeholder="email id"/>
+        <button>Create</button>
+        <p class="message">Already Registered? <a href="#">Login</a>
+        </p>
+        </form>
+
+        <form class="login-form">
+        <input type="text" placeholder="username"/>
+        <input type="password" placeholder="password"/>
+        <button>login</button>
+        <p class="message">Not Registered? <a href="#">Register</a></p>
+        </form>
+
+        <script src="http://code.jquery.com/jquery-3.2.1.min.js">
+        </script>
+
+        <script>
+        $('.message a').click(function() {
+        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        }); 
+        </script>
+
+    </div>
+    </div>
     
 </body>
 </html>
