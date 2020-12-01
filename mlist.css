@@ -161,18 +161,12 @@ body {
 	font-size: 33px;
 }
 
-.content .buttons .star i {
-	color: #2bb1ff;
-	font-size: 22px;
-}
-
 .content .buttons .heart i {
 	color: #11e298;
 	font-size: 32px;
 }
 
 .content .buttons .no,
-.content .buttons .star,
 .content .buttons .heart {
 	background-color: #fff;
 	width: 70px;
@@ -187,12 +181,6 @@ body {
 }
 
 .content .buttons .no:hover,
-.content .buttons .star:hover,
 .content .buttons .heart:hover {
 	transform: scale(1.1);
-}
-
-.content .buttons .star {
-	width: 60px;
-	height: 60px;
 }
