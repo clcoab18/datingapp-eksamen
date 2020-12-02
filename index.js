@@ -10,6 +10,6 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/logout', function(req, res) {
     req.logout(); //logger ud automatisk 
-    
+    res.session.destroy(); 
     res.redirect('/');
 });
