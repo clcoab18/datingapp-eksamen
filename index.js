@@ -14,6 +14,90 @@ router.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
+//Stay loggedin 
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+
+const port = 3700;
+//Var til payload med token
+let sessionID; 
+
+class User {
+    constructor(username, password, desc) {
+        this.username = username;
+        this.password = password;
+        this.desc = desc;
+    }
+}
+
+//User-array - mimering af liste med brugere i JSON-format
+let userArr = [{"username": "JennieJane", "password": "Blackpink1234"}];
+//Privatekey til token 
+const privateKey = 'This key is private :)';
+
+
+//Validation funktion
+function isAuth(req, res, next) {
+    console.log(req)
+    if (typeof req.headers.authorization !== "undefined") {
+        let token = req.headers.authorization;
+
+        //Token validation
+        jwt.verify(token, privateKey, {algorithm: "HS256"}, (err, decoded) => {
+            //If an error occurred
+            if (err) {
+                res.status(500);
+                throw new Error("Token is not accepted or an error occurred");
+            }
+            sessionID = decoded;
+            console.log(decoded)
+            return next();
+        });
+    } else {
+        //If an error occurred
+        res.status(500);
+        console.log(req.headers.authorization);
+        throw new Error("Something went wrong with authentification");
+    };
+};
+
+
+app.post('/login', (req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
+
+    console.log('User and pass from req: '+ username +' ' + password); 
+
+    let userInArr = false;
+    let userInArrIndex = 0;
+
+    for (let i = 0; i<userArr.length; i++) {
+        if (username == userArr[i].username) {
+            if (password == userArr[i].password) {
+                userInArr = true;
+                userInArrIndex = i;
+                console.log('Index on userarray '+userInArrIndex);
+                break;
+            } else {
+                console.log('False, Wrong password')
+            }
+            
+        }
+    }
+
+    if (userInArr) {
+        let token = jwt.sign({usernameSession: username},privateKey,{algorithm: 'HS256'});
+        console.log(token);
+        res.send(JSON.stringify(token));
+    }
+})
+
 // Users
 [{"username":"Jennie","likes":[],"dislikes":["Felix","IN"]},{"username":"Felix","likes":[],"dislikes":["IN"]},{"username":"RM","likes":[],"dislikes":["Dean","IN"]},{"username":"Dean","likes":[],"dislikes":["Felix","IN","Karsten","Jennie"]}]
 
@@ -63,4 +147,3 @@ function findUserHelper(thisUser, thisUserIndex, arr) {
 
 console.log(findUser('Lee'))
 console.log(matchmaking[0].dislikes[0])
-
