@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swipe</title>
+</head>
+<body>
+    <div class="topBar"></div>
+        <div class="settings"></div>
+        <div class="K-lovelogo"></div>
+        <div class="messageBubble"></div>
+    </div>
+
+    <div class="picture"></div>
+    <div class="picInfro">
+        <a class="name">Ten, <span style= "font-weight: 400">24</span></a>
+        <a class="Job">K-pop Idol</a>
+    </div>
+
+    <div class="pictureTwo"></div>
+    <div class="picInfro">
+        <a class="name">Jackson, <span style= "font-weight: 400">24</span></a>
+        <a class="Job">K-pop Idol</a>
+    </div>
+
+    <div class="pictureThree"></div>
+    <div class="picInfro">
+        <a class="name">Jungkook, <span style= "font-weight: 400">24</span></a>
+        <a class="Job">K-pop Idol</a>
+    </div>
+
+   <div onclick="hiddenCard()" id="card">
+    <div class="picture"></div>
+    <div class="picInfro">
+        <a class="name">Ten<span style="font-weight: 400">, 24</span></a>
+        <a class="job">K-pop Idol</a>
+    </div>
+</div>
+
+<div onclick="hiddenCard2()" id="card2">
+    <div class="picture"></div>
+    <div class="picInfro">
+        <a class="name">Jackson<span style="font-weight: 400">, 24</span></a>
+        <a class="job">K-pop Idol</a>
+    </div>
+</div>
+
+<div onclick="hiddenCard3()" id="card3">
+    <div class="picture"></div>
+    <div class="picInfro">
+        <a class="name">Jungkook<span style="font-weight: 400">, 24</span></a>
+        <a class="job">K-pop Idol</a>
+    </div>
+</div>
+
+    <div class="bottomBar">
+        <div class="smallRing">
+            <div class= dislike></div>
+        </div>
+        <div class="smallRing">
+            <div class= like></div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function hiddenCard(){
+        var card = document.getElementById("card");
+        card.style.display = "none";
+    }
+
+    function hiddenCard2(pictureTwo){
+        var card = document.getElementById("card2");
+        card.style.display = "none";
+    }
+
+    function hiddenCard3(pictureThree){
+        var card = document.getElementById("card3");
+        card.style.position = "relvative";
+        card.style.left = "1000px";
+        card.style.top="100px";
+    }
+
+</script>
+
+<style>
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.topBar {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: #fd5068; 
+    padding: 25px 10px 0px 10px;
+}
+
+.picture {
+    height: 700px;
+    width: 100%;
+    border-radius: 10px;
+    background: url(https://64.media.tumblr.com/9e4efd654e81a2c288055cd0b5aa0fda/tumblr_p9qk8pXfET1vmtc1xo1_1280.png) no-repeat center center;
+    background-size: cover;
+}
+
+.pictureTwo {
+    height: 700px;
+    width: 100%;
+    border-radius: 10px;
+    background: url(https://pbs.twimg.com/media/D3iRLwEWsAYuWPm.jpg) no-repeat center center;
+    background-size: cover;
+
+}
+
+.pictureThree {
+    height: 700px;
+    width: 100%;
+    border-radius: 10px;
+    background: url(https://pbs.twimg.com/media/D653-xPUwAIE2BV.jpg) no-repeat center center;
+    background-size: cover;
+
+}
+
+.picInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background: #ffffff;
+    border: 3px solid lightgrey;
+    border-radius: 15px;
+    margin-top: -8px;
+    position: relative;
+    z-index: -1;
+}
+
+.name {
+    font-size: 70px;
+    font-weight: 600;
+}
+
+.job {
+    font-size: 50px;
+    color: grey;
+}
+
+#card {
+    position: absolute;
+    width: 100%;
+    top: 150px;
+    left: 0;
+    right: 0;
+    transition: 0.4s;
+    flex-shrink: 0;
+}
+
+#card2 {
+    position: absolute;
+    width: 100%;
+    top: 150px;
+    left: 0;
+    right: 0;
+    transition: 0.4s;
+    flex-shrink: 0;
+}
+
+#card3 {
+    position: absolute;
+    width: 100%;
+    top: 150px;
+    left: 0;
+    right: 0;
+    transition: 0.4s;
+}
+
+.bottomBar {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    margin-bottom: auto;
+}
+
+.smallRing {
+    height: 140px;
+    width: 140px;
+    border: 30px rgb(233, 233, 233) solid;
+    border-radius: 50%;
+}
+
+.Ring {
+    height: 160px;
+    width: 160px;
+    border: 30px rgb(233, 233, 233) solid;
+    border-radius: 50%;
+}
+
+.dislike {
+    height: 140px;
+    width: 140px;
+    background: url(https://logodix.com/logo/306582.png) no-repeat center center;
+    background-size: cover;
+}
+
+.like {
+    height: 140px;
+    width: 140px;
+    background: url(https://logodix.com/logo/306616.png) no-repeat center center;
+    background-size: cover;
+}
+
+</style>
+    
+</html>
